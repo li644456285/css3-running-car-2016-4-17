@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin: 0;padding:0;}
+	.background{height: 373px;width: 500px;background: #c8e4ee;border: 1px solid #262626;position:absolute;top: 0;bottom: 0;left:0;right:0;margin: auto;overflow: hidden;}
+	.background:hover{transform: scale(1.5);}
+	.background:click{opacity: 1;}
+	.sun{width: 40px;height: 40px;border-radius:50%;background: #ff9944;position: absolute;top:17px;right:114px;box-shadow:0 0 50px rgba(255,153,68,0.7);}
+	.hill{width: 550px;height: 130px;background: #93cc3a;position: absolute;bottom:28px;left:-50px;border-top-right-radius: 500px 100px;transform: rotate(10deg);box-shadow: 0 0 10px #cbf191;}
+	.hill:before{content:'';display:block;width: 250px;height: 100px;background: #93cc3a;position: absolute;bottom:28px;right: -50px;border-top-left-radius: 250px 80px;transform: rotate(-20deg);box-shadow: 0 0 25px #cbf191 inset;}
+	.hill1{content:'';display:block;width: 550px;height: 130px;background: #adde60;position: absolute;bottom:57px;border-top-left-radius: 250px 100px;border-top-right-radius: 250px 100px;}
+	.grass{width: 500px;height: 10px;background: #dbcac2;position: absolute;bottom: 70px;}
+	.grass:before{content:'';display:block;height: 8px;width:500px;background: -webkit-linear-gradient(-45deg, transparent 25%, #0aa 25%);background-size: 15px 8px;position: absolute;top: -8px;}
+	.road{width: 500px;height: 70px;background: #7a7a7a;position: absolute;bottom: 0;}
+	.road:before{content: '';display: block;background: #b99f93;height: 6px;}
+	.road:after{content: '';display: block;width: 100px;height: 8px;background: #d2d2d2;position: absolute;top: 34px;left: -20px;box-shadow: 400px 0 0 #d2d2d2,200px 0 0 #d2d2d2;}
+	.car{position: absolute;left:200px;bottom: 102px;-webkit-animation:move 5s linear infinite;transform: scale(0.9);}
+	.carshadow{width: 125px;position: absolute;top: 52px;left: -2px; box-shadow: -5px 10px 15px 3px #262626;}
+	.top{width: 24px;height: 3px;background: #262626;position: absolute;left: 48px;top:-1px;border-radius:0 15px 0 0;}
+	.backwindow{width: 48px;height: 22px;background: #262626;border-top-left-radius:9px 20px;position: absolute;top: -1px;}
+	.backwindow:before{content:'';width: 32px;height: 14px;background: #736f6f;display: block;position:absolute;top: 4px;right: 6px;border: 4px;}
+	.fontgai{width: 42px;height: 5px;background: #d1352b;position: absolute;left:78px;top: 16px;border-top-right-radius: 20px 6px;}
+	.fontwindow{width: 25px;height: 19px;background: #d1352b;position: absolute;left: 48px;top: 2px;border-top-right-radius: 2px;}
+	.fontwindow:before{content: '';width: 20px;height: 19px;background: #d1352b;display: block;transform: skewX(45deg);position:absolute;left: 15px;border-top-right-radius: 2px;}
+	.glass{width: 18px;height: 11px;background:#f5e7e7;position: absolute;left: 51px;top: 5px;border: 4px;}
+	.glass:before{content: '';display: block;width: 18px;height: 11px;background:#f5e7e7;transform: skewX(45deg);position:absolute;left:7px;border: 4px;}
+	.line{width: 121px;height: 1px;background: #262626;position: absolute;top: 20px;}
+	.carbody{width: 120px;height: 25px;background: #d1352b;position: absolute;top: 21px;}
+	.carbody:before{content: '';display:block;position: absolute;width: 5px;height: 25px;background: #d1352b;right: -5px;border-top-right-radius:4px;}
+	.cargate{width: 37px;height: 20px;background: #d1352b;border:1px solid #262626;border-bottom-left-radius:8px;border-bottom-right-radius: 2px;position: absolute;top:20px;left: 48px; }
+	.cargate:before{content:'';width: 8px;height: 2px;background: #262626;display: block;position:absolute;top: 2px;left: 4px;}
+	.btyrecover{width: 20px;height: 17px;background: #262626;position: absolute;top: 30px;left:12px;}
+	.btyrecover:before{content:'';display:block;width: 18px;height: 17px;background: #262626;position: absolute;left:-5px;transform:skewX(-25deg);border-radius:0 0 0 3px;}
+	.btyrecover:after{content:'';display:block;width: 18px;height: 17px;background: #262626;position: absolute;left:10px;transform:skewX(40deg);border-radius:0 3px 0 0;}
+	.btyrecover1{width: 20px;height: 22px;background: #4c4b4b;position: absolute;top: 24px;left:12px;}
+	.btyrecover1:before{content:'';display:block;width: 18px;height: 22px;background: #4c4b4b;position: absolute;left:-10px;transform:skewX(-25deg);border-radius:0 0 4px 3px;}
+	.btyrecover1:after{content:'';display:block;width: 18px;height: 22px;background: #4c4b4b;position: absolute;left:15px;transform:skewX(40deg);border-radius:0 3px 0 0;}
+	.ftyrecover{width: 20px;height: 17px;background: #262626;position: absolute;top: 30px;left:105px;}
+	.ftyrecover:before{content:'';display:block;width: 18px;height: 17px;background: #262626;position: absolute;left:-7px;transform:skewX(-40deg);border-radius:0 0 0 3px;}
+	.ftyrecover:after{content:'';display:block;width: 18px;height: 17px;background: #262626;position: absolute;left:10px;transform:skewX(40deg);border-radius:0 0 10px 0;}
+	.ftyrecover1{width: 20px;height: 5px;background: #4c4b4b;position: absolute;top: 24px;left:110px;border-radius:0 5px 0 0;}
+	.ftyrecover1:before{content:'';display:block;width: 18px;height: 22px;background: #4c4b4b;position: absolute;left:-16px;transform:skewX(-40deg);border-radius:0 0 0 3px;}
+	.ftyrecover1:after{content:'';display:block;width: 18px;height: 10px;background: #4c4b4b;position: absolute;left:4px;transform:skewX(35deg);border-radius:0 3px 3px 0;}
+	.bottom{width: 103px;height: 8px;background: #262626;position: absolute;top: 43px;left: 35px;transform: rotate(-3deg);border-radius: 0 0 4px 0;}
+	.bottom:before{content:'';display:block;width: 40px;height: 8px;background: #262626;position: absolute;transform: rotate(2deg);left: -40px;border-radius: 0 0 0 8px;top: -1px;}
+	.tyre{width: 30px;height: 30px;background:#4c4b4b ;border-radius: 50%;position: absolute;top: 31px;left: 7px;-webkit-animation:rotate 0.7s linear infinite;}
+	.ftyre{width: 30px;height: 30px;background:#4c4b4b ;border-radius: 50%;position: absolute;top: 31px;left: 100px;-webkit-animation:rotate 0.7s linear infinite;}
+	.tyreinner{width: 20px;height: 20px;border-radius: 50%;position: absolute;background: #bdc2bd;top: 36px;left: 12px;-webkit-animation:rotate 0.7s linear infinite;}
+	.tyreinner:before{content: '';width: 4px;height: 2px;background:#262626;position: absolute;display: block;top: 9px;left: 4px;  -webkit-box-shadow:9px 0 0 #262626; }
+	.tyreinner:after{content: '';width: 2px;height: 4px;background:#262626;position: absolute;display: block;top: 4px;left: 9px;  -webkit-box-shadow:0 9px 0 #262626; }
+	.ftyreinner{width: 20px;height: 20px;border-radius: 50%;position: absolute;background: #bdc2bd;top: 36px;left: 105px;-webkit-animation:rotate 0.7s linear infinite;}
+	.ftyreinner:before{content: '';width: 4px;height: 2px;background:#262626;position: absolute;display: block;top: 9px;left: 4px;  -webkit-box-shadow:9px 0 0 #262626; }
+	.ftyreinner:after{content: '';width: 2px;height: 4px;background:#262626;position: absolute;display: block;top: 4px;left: 9px;  -webkit-box-shadow:0 9px 0 #262626; }
+	.block{width: 13px;height: 8px;position: absolute;left: -9px;top: 38px;background:#4c4b4b;border-radius: 2px;}
+	.block1{width: 8px;height: 10px;background:#4c4b4b;position: absolute;left: 132px;top: 37px;border-radius: 0 4px 8px 0;transform: rotate(-10deg); }
+	.sparetire{width: 3px;height: 6px;background:#4c4b4b;position: absolute;left: -3px;top: 28px;}
+	.sparetire:before{content:'';display:block;width: 8px;height: 12px;background:#4c4b4b;position: absolute;left: -8px;top: -11px;border-radius: 4px 4px 0 0;}
+	.sparetire:after{content:'';display:block;width: 8px;height: 12px;background:#262626;position: absolute;left: -8px;border-radius: 0 0 4px 4px;}
+	
+	@-webkit-keyframes move{
+		0%{left: -25%;}
+		100%{left:100%;}
+	}
+	@-webkit-keyframes rotate{
+		from{transform: rotate(0deg);}
+		to{transform: rotate(360deg);}
+	}
+	</style>
+</head>
+<body>
+	<div class="background">
+	<div class="sun"></div>
+	<div class="hill1"></div>
+	<div class="hill"></div>
+	<div class="grass"></div>
+	<div class="road"></div>
+	<div class="car">
+		<div class="carshadow"></div>
+		<div class="top"></div>
+		<div class="bottom"></div>
+		<div class="backwindow"></div>
+		<div class="fontgai"></div>
+		<div class="fontwindow"></div>
+		<div class="glass"></div>
+		<div class="line"></div>
+		<div class="carbody"></div>
+		<div class="cargate"></div>
+		<div class="btyrecover1"></div>
+		<div class="btyrecover"></div>
+		<div class="ftyrecover1"></div>
+		<div class="ftyrecover"></div>
+		<div class="tyre"></div>
+		<div class="ftyre"></div>
+		<div class="tyreinner"></div>
+		<div class="ftyreinner"></div>
+		<div class="sparetire"></div>
+		<div class="block"></div>
+		<div class="block1"></div>
+		
+	</div>
+	</div>
+</body>
+</html>
